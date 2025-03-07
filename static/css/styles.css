@@ -1,0 +1,618 @@
+/* Base styles */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --light-text: #f5f5f5;
+  --bg-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+/* Layout */
+header {
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  min-height: calc(100vh - 140px);
+}
+
+/* Components */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+}
+
+.btn-secondary:hover {
+  background-color: #27ae60;
+}
+
+/* Forms */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Messages */
+.messages {
+  margin-bottom: 1.5rem;
+}
+
+.message {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Home page */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.feature h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+/* Login options */
+.login-options {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.login-options h1 {
+  margin-bottom: 2rem;
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.login-option {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-option h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.login-options > div {
+  width: 350px; /* Set fixed width */
+  height: 350px; /* Make it square */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; /* Ensure spacing */
+  border-radius: 12px; /* Keep a slight curve */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.login-option p {
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.login-option .btn {
+  margin: 0.5rem;
+}
+
+/* Login and Register Forms */
+.login-form,
+.register-form {
+  max-width: 450px; /* Reduce width */
+  width: 90%; /* Responsive */
+  margin: auto; /* Center horizontally */
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Adjust height dynamically */
+.main-container {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem; /* Adds small spacing above & below */
+  box-sizing: border-box; /* Prevents overflow */
+}
+
+.login-form {
+  max-width: 400px; /* Adjust width for smaller card */
+  width: 90%;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-form:hover,
+.register-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+@media (min-width: 768px) {
+  .login-form,
+  .register-form {
+    max-width: 400px; /* Keep it compact on larger screens */
+  }
+}
+
+
+.login-button {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.login-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.social-login {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.google-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #ccc;
+}
+
+.login-footer,
+.register-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.login-footer a,
+.register-footer a {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.login-footer a:hover,
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* Dashboard */
+.dashboard {
+  padding: 2rem;
+}
+
+.dashboard-header {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.dashboard-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.card-button {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  border-radius: 4px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #2980b9;
+}
+
+.dashboard-recent {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-recent h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.activity-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.activity-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.activity-details h4 {
+  margin-bottom: 0.5rem;
+}
+
+/* Calendar */
+.calendar-section {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#calendar {
+  height: 600px;
+  margin-top: 2rem;
+}
+
+/* Gmail */
+.app-view {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.email-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.email-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Profile */
+.profile-view {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-cards,
+  .activity-list {
+    grid-template-columns: 1fr;
+  }
+
+  .options-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  transition: all 0.3s ease-in-out !important;
+  border-radius: 10px;
+  background: white;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-body h4 {
+  margin-bottom: 15px;
+}
+
+.card-body p {
+  text-align: center;
+  max-width: 90%;
+}
+
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar is assumed to be in the base template */
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Login container with spacing */
+.login-container {
+  flex: 1;
+  padding: 40px 0;
+}
+
+/* Card styling */
+.card {
+  width: 400px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0; /* Added border */
+  overflow: hidden;
+}
+
+/* User icon styling */
+.user-icon-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.user-icon-circle i {
+  color: white;
+  font-size: 30px;
+}
+
+/* Typography */
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* Form styling */
+.form-control {
+  background-color: #f0f7ff;
+  border: none;
+  padding: 12px;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #3498db;
+  border: none;
+  padding: 10px;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+
+/* Common Styles */
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+/* Admin Login Page */
+
+
+.admin-login h2 {
+  font-weight: 600;
+}
+
+.admin-login .form-control {
+  border-radius: 5px;
+}
+
+/* Guest Login Page */
+.guest-login .card {
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.guest-login h2 {
+  font-weight: 600;
+}
+
+/* Button Styling */
+.btn-primary {
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.btn-outline-secondary {
+  border-radius: 5px;
+}
+/* Ensure full viewport height centering */
+.min-vh-100 {
+  min-height: 100vh !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Prevents unwanted margins affecting centering */
+.admin-login-page {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensures the card is centered properly */
+.admin-login .card {
+  max-width: 400px; /* Prevents excessive width */
+  width: 100%;
+}
+

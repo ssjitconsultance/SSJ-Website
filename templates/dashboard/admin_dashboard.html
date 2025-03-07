@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Admin Dashboard - SSJ IT Consultancy{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+    <div class="dashboard-header">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1><i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard</h1>
+                <p><i class="fas fa-user-shield me-2"></i>Administrator</p>
+            </div>
+
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Cards -->
+    <div class="dashboard-cards">
+        <div class="dashboard-card">
+            <img src="{% static 'images/employees-icon.png' %}" alt="Employees Icon">
+            <h3>Employees</h3>
+            <p>Manage employee accounts and information.</p>
+            <a href="{% url 'admin:employee_portal_employee_changelist' %}" class="card-button">
+                <i class="fas fa-users me-2"></i>Manage Employees
+            </a>
+        </div>
+
+        <div class="dashboard-card">
+            <img src="{% static 'images/calendar-icon.png' %}" alt="Calendar Icon">
+            <h3>Calendar</h3>
+            <p>Manage company events and schedules.</p>
+            <a href="{% url 'admin:employee_portal_calendar_changelist' %}" class="card-button">
+                <i class="fas fa-calendar-alt me-2"></i>Manage Calendar
+            </a>
+        </div>
+
+        <div class="dashboard-card">
+            <img src="{% static 'images/email-icon.png' %}" alt="Email Icon">
+            <h3>Email</h3>
+            <p>Manage internal email communications.</p>
+            <a href="{% url 'admin:employee_portal_email_changelist' %}" class="card-button">
+                <i class="fas fa-envelope me-2"></i>Manage Emails
+            </a>
+        </div>
+    </div>
+
+    <!-- Employee List -->
+    <div class="dashboard-section mt-5">
+        <h2><i class="fas fa-users me-2"></i>Employee List</h2>
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Position</th>
+                        <th>Date Joined</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.employee_id }}</td>
+                        <td>{{ employee.user.get_full_name }}</td>
+                        <td>{{ employee.department }}</td>
+                        <td>{{ employee.position }}</td>
+                        <td>{{ employee.date_joined|date:"M d, Y" }}</td>
+                        <td>
+                            <a href="{% url 'admin:employee_portal_employee_change' employee.id %}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">No employees found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

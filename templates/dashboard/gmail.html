@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gmail - SSJ IT Consultancy{% endblock %}
+
+{% block content %}
+<section class="app-view py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-envelope me-2"></i>Your Gmail</h1>
+            <a href="{% url 'employee_dashboard' %}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left me-2"></i>Back to Dashboard
+            </a>
+        </div>
+
+        {% if emails %}
+            <div id="email-list" data-emails='{{ emails|safe|json_script:"emailData" }}'>
+                {% for email in emails %}
+                    <div class="email-item mb-3 p-3 border rounded {% if email.is_unread %}bg-light{% endif %}">
+                        <div class="d-flex justify-content-between">
+                            <strong>{{ email.sender }}</strong>
+                            <span class="text-muted">{{ email.date }}</span>
+                        </div>
+                        <div class="fw-bold">{{ email.subject }}</div>
+                        <div class="text-muted">{{ email.snippet }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted">No emails to display or Gmail is not connected.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+

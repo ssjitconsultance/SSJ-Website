@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Guest Login - SSJ IT Consultancy{% endblock %}
+{% block body_class %}login-page{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <div class="login-container d-flex justify-content-center align-items-center">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <div class="text-center mb-3">
+                    <div class="user-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <h1 class="text-center mb-4">Guest Login</h1>
+
+                {% if messages %}
+                    <div class="messages mb-3">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- Standard Login Form -->
+                <form method="post" action="{% url 'guest_login' %}">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="username" class="form-label d-flex align-items-center">
+                            <i class="fas fa-user me-2"></i>Username
+                        </label>
+                        <input type="text" id="username" name="username" class="form-control" required>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="password" class="form-label d-flex align-items-center">
+                            <i class="fas fa-lock me-2"></i>Password
+                        </label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 mb-3">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login
+                    </button>
+                </form>
+
+                <!-- Google Sign-In -->
+
+                <div class="text-center mt-3">
+                    <p class="text-muted">Or sign in with</p>
+                    {% comment %} {% load socialaccount %} href="{% provider_login_url 'google' %}"  {% endcomment %}
+                    <a href="#" class="btn btn-outline-secondary w-100 google-btn">
+                        <img src="{% static 'images/google-icon.png' %}" alt="Google Icon" width="20" class="me-2">
+                        Sign in with Google
+                    </a>
+                    
+                </div>
+
+                <!-- Create Account Link -->
+                <div class="text-center mt-3">
+                    <p>Don't have an account? 
+                        <a href="{% url 'guest_register' %}" class="text-primary text-decoration-underline">Create here</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

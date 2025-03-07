@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login - SSJ IT Consultancy{% endblock %}
+{% block body_class %}{% endblock %}
+{% block content %}
+<div class="main-container">
+<section class="login-options d-flex justify-content-center align-items-center">
+    <div class="card p-5 shadow text-center">
+        <div class="mb-4">
+            <i class="fas fa-users text-primary" style="font-size: 3rem;"></i>
+        </div>
+        <h2 class="mb-4">Login As</h2>
+        <div class="d-flex flex-column gap-3">
+            <a href="{% url 'employee_login' %}" class="btn btn-primary">
+                <i class="fas fa-user-tie me-2"></i>Employee
+            </a>
+            <a href="{% url 'guest_login' %}" class="btn btn-secondary">
+                <i class="fas fa-user me-2"></i>Guest
+            </a>
+        </div>
+        <div class="mt-4">
+            <a href="/" class="text-decoration-none">
+                <i class="fas fa-arrow-left me-1"></i> Back to Home
+            </a>
+        </div>
+    </div>
+</section>
+</div>
+{% endblock %}
