@@ -1,5 +1,5 @@
 ﻿pip>=25.0.1
-setuptools>=69.0.3
+setuptools>=68.2.2
 wheel 
 asgiref==3.8.1
 Django==4.2.8
